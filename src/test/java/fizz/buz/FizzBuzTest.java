@@ -32,7 +32,7 @@ class FizzBuzTest {
     }
 
     @ParameterizedTest
-    @ValueSource(ints = {5, 10, 35, 40})
+    @ValueSource(ints = {5, 10, 40})
     void should_be_said_Buzz_when_count_is_5_times(int number) {
         FizzBuz fizzBuz = new FizzBuz();
 
@@ -59,5 +59,24 @@ class FizzBuzTest {
         String answer = fizzBuz.count(number);
 
         assertEquals("FizzBuzz", answer);
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {21, 63})
+    void should_be_said_FizzBuzz_when_count_is_same_as_3_and_7_times(int number) {
+        FizzBuz fizzBuz = new FizzBuz();
+
+        String answer = fizzBuz.count(number);
+
+        assertEquals("FizzWhizz", answer);
+    }
+
+    @Test
+    void should_be_said_FizzBuzz_when_count_is_same_as_5_and_7_times() {
+        FizzBuz fizzBuz = new FizzBuz();
+
+        String answer = fizzBuz.count(35);
+
+        assertEquals("FizzWhizz", answer);
     }
 }
