@@ -14,13 +14,11 @@ public class FizzBuz {
         Judgment fiveJudgment = new DivisionJudgment(5, "Buzz");
         Judgment sevenJudgment = new DivisionJudgment(7, "Whizz");
 
-        List<Judgment> judgments = Arrays.asList(threeJudgment, fiveJudgment, sevenJudgment);
-
-        DivisionRule divisionRule = new DivisionRule(judgments);
+        DivisionRule divisionRule = new DivisionRule(Arrays.asList(threeJudgment, fiveJudgment, sevenJudgment));
         DefaultRule defaultRule = new DefaultRule();
         Contains3Rule contains3Rule = new Contains3Rule();
         Contains5Rule contains5Rule = new Contains5Rule(new DivisionRule(Arrays.asList(fiveJudgment, sevenJudgment)), defaultRule);
-        Contains7Rule contains7Rule = new Contains7Rule(new Contains3Rule(), new DivisionRule(Arrays.asList(threeJudgment, sevenJudgment)));
+        Contains7Rule contains7Rule = new Contains7Rule(new Contains3Rule(), new DivisionRule(Arrays.asList(threeJudgment, sevenJudgment)), defaultRule);
         rules = Arrays.asList(contains7Rule, contains5Rule, contains3Rule, divisionRule, defaultRule);
     }
 

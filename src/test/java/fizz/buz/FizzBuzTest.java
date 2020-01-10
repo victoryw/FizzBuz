@@ -152,6 +152,10 @@ class FizzBuzTest {
         answer = fizzBuz.count(75);
 
         assertEquals("Fizz", answer);
+
+        answer = fizzBuz.count(170);
+
+        assertEquals("170", answer);
     }
 
 

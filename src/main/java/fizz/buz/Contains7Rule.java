@@ -5,10 +5,12 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 public class Contains7Rule implements Rule {
     private final Contains3Rule contains3Rule;
     private DivisionRule divisionRule;
+    private DefaultRule defaultRule;
 
-    public Contains7Rule(Contains3Rule contains3Rule, DivisionRule divisionRule) {
+    public Contains7Rule(Contains3Rule contains3Rule, DivisionRule divisionRule, DefaultRule defaultRule) {
         this.contains3Rule = contains3Rule;
         this.divisionRule = divisionRule;
+        this.defaultRule = defaultRule;
     }
 
     @Override
@@ -21,12 +23,11 @@ public class Contains7Rule implements Rule {
             return divisionRule.value(number);
         }
 
-        throw new NotImplementedException();
+       return defaultRule.value(number);
     }
 
     @Override
     public boolean canApply(int number) {
-        return String.valueOf(number).contains("7")
-                && (contains3Rule.canApply(number) || divisionRule.canApply(number));
+        return String.valueOf(number).contains("7");
     }
 }
