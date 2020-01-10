@@ -1,6 +1,6 @@
 package fizz.buz;
 
-public class DivisionJudgment implements Judgment {
+public class DivisionJudgment {
     private final int divisibility;
     private final String value;
 
@@ -14,7 +14,6 @@ public class DivisionJudgment implements Judgment {
         return value;
     }
 
-    @Override
     public boolean canApply(int number) {
         return number % divisibility == 0;
     }

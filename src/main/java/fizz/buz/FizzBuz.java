@@ -10,9 +10,9 @@ public class FizzBuz {
     private final List<Rule> rules;
 
     public FizzBuz() {
-        Judgment threeJudgment = new DivisionJudgment(3, "Fizz");
-        Judgment fiveJudgment = new DivisionJudgment(5, "Buzz");
-        Judgment sevenJudgment = new DivisionJudgment(7, "Whizz");
+        DivisionJudgment threeJudgment = new DivisionJudgment(3, "Fizz");
+        DivisionJudgment fiveJudgment = new DivisionJudgment(5, "Buzz");
+        DivisionJudgment sevenJudgment = new DivisionJudgment(7, "Whizz");
 
         DivisionRule divisionRule = new DivisionRule(Arrays.asList(threeJudgment, fiveJudgment, sevenJudgment));
         DefaultRule defaultRule = new DefaultRule();

@@ -4,9 +4,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class DivisionRule implements Rule {
-    private List<Judgment> judgments;
+    private List<DivisionJudgment> judgments;
 
-    public DivisionRule(List<Judgment> judgments) {
+    public DivisionRule(List<DivisionJudgment> judgments) {
         this.judgments = judgments;
     }
 

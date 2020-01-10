@@ -1,7 +1,5 @@
 package fizz.buz;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 public class Contains7Rule implements Rule {
     private final Contains3Rule contains3Rule;
     private DivisionRule divisionRule;
