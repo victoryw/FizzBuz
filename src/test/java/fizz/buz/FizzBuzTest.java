@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class FizzBuzTest {
 
     @ParameterizedTest
-    @ValueSource(ints = {1, 7, 8, 41})
+    @ValueSource(ints = {1, 8, 41})
     void should_report_as_number_when_count_is_normal_case(int number) {
         FizzBuz fizzBuz = new FizzBuz();
 
@@ -22,7 +22,7 @@ class FizzBuzTest {
     }
 
     @ParameterizedTest
-    @ValueSource(ints = {3, 6, 9, 30, 120})
+    @ValueSource(ints = {3, 6, 9})
     void should_be_said_fiz_when_count_is_3_times(int number) {
         FizzBuz fizzBuz = new FizzBuz();
 
@@ -39,5 +39,25 @@ class FizzBuzTest {
         String answer = fizzBuz.count(number);
 
         assertEquals("Buzz", answer);
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {7, 14, 49})
+    void should_be_said_Whizz_when_count_is_7_times(int number) {
+        FizzBuz fizzBuz = new FizzBuz();
+
+        String answer = fizzBuz.count(number);
+
+        assertEquals("Whizz", answer);
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {15, 45, 75})
+    void should_be_said_FizzBuzz_when_count_is_same_as_3_and_5_times(int number) {
+        FizzBuz fizzBuz = new FizzBuz();
+
+        String answer = fizzBuz.count(number);
+
+        assertEquals("FizzBuzz", answer);
     }
 }
