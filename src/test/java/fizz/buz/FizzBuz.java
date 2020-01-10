@@ -19,7 +19,9 @@ public class FizzBuz {
         DivisionRule divisionRule = new DivisionRule(judgments);
         DefaultRule defaultRule = new DefaultRule();
         Contains3Rule contains3Rule = new Contains3Rule();
-        rules = Arrays.asList(contains3Rule, divisionRule, defaultRule);
+        Contains5Rule contains5Rule = new Contains5Rule(new DivisionRule(Arrays.asList(fiveJudgment, sevenJudgment)), defaultRule);
+        Contains7Rule contains7Rule = new Contains7Rule(new Contains3Rule(), new DivisionRule(Arrays.asList(threeJudgment, sevenJudgment)));
+        rules = Arrays.asList(contains7Rule, contains5Rule, contains3Rule, divisionRule, defaultRule);
     }
 
     public String count(int number) {
