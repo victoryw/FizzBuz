@@ -72,11 +72,11 @@ class FizzBuzTest {
     }
 
     @Test
-    void should_be_said_FizzBuzz_when_count_is_same_as_5_and_7_times() {
+    void should_be_said_FizzBuzz_when_count_is_same_as_3_and_5_and_7_times() {
         FizzBuz fizzBuz = new FizzBuz();
 
-        String answer = fizzBuz.count(35);
+        String answer = fizzBuz.count(105);
 
-        assertEquals("FizzWhizz", answer);
+        assertEquals("FizzBuzzWhizz", answer);
     }
 }

@@ -12,35 +12,34 @@ public class FizzBuz {
     }
 
     private String generateSaying(int number, boolean isExactDivisionByThree, boolean isExactDivisionByFive, boolean isExtractDivisionBySeven) {
-        String Fizz = "Fizz";
-        String Buzz = "Buzz";
-        String Whizz = "Whizz";
-        String result;
-        if (isExactDivisionByFive && isExtractDivisionBySeven) {
-            result = String.join("", Fizz, Whizz);
-            return result;
-        }
-        if (isExactDivisionByThree && isExtractDivisionBySeven) {
-            result = String.join("", Fizz, Whizz);
-            return result;
-        }
-        if (isExactDivisionByFive && isExactDivisionByThree) {
-            result = String.join("", Fizz, Buzz);
-            return result;
-        }
-        if (isExactDivisionByThree) {
-            result = Fizz;
-            return result;
-        } else if (isExactDivisionByFive) {
-            result = Buzz;
-            return result;
-        }
-        if (isExtractDivisionBySeven) {
-            result = Whizz;
-            return result;
+        String threeSaying = "Fizz";
+        String fiveSaying = "Buzz";
+        String sevenSaying = "Whizz";
+
+        if (isExactDivisionByThree && isExactDivisionByFive && isExtractDivisionBySeven) {
+            return String.join("", threeSaying, fiveSaying, sevenSaying);
         }
 
-        result = String.valueOf(number);
-        return result;
+        if (isExactDivisionByFive && isExtractDivisionBySeven) {
+            return String.join("", threeSaying, sevenSaying);
+        }
+        if (isExactDivisionByThree && isExtractDivisionBySeven) {
+            return String.join("", threeSaying, sevenSaying);
+        }
+        if (isExactDivisionByFive && isExactDivisionByThree) {
+            return String.join("", threeSaying, fiveSaying);
+        }
+        if (isExactDivisionByThree) {
+            return threeSaying;
+        }
+
+        if (isExactDivisionByFive) {
+            return fiveSaying;
+        }
+        if (isExtractDivisionBySeven) {
+            return sevenSaying;
+        }
+
+        return String.valueOf(number);
     }
 }
