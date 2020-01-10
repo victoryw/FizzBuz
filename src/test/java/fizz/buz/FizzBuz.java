@@ -1,39 +1,29 @@
 package fizz.buz;
 
-import com.google.common.base.Strings;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+
 
 public class FizzBuz {
+    private final List<Rule> rules;
+
+    public FizzBuz() {
+        Judgment threeJudgment = new DivisionJudgment(3, "Fizz");
+        Judgment fiveJudgment = new DivisionJudgment(5, "Buzz");
+        Judgment sevenJudgment = new DivisionJudgment(7, "Whizz");
+
+        List<Judgment> judgments = Arrays.asList(threeJudgment, fiveJudgment, sevenJudgment);
+
+        DivisionRule divisionRule = new DivisionRule(judgments);
+        DefaultRule defaultRule = new DefaultRule();
+        Contains3Rule contains3Rule = new Contains3Rule();
+        rules = Arrays.asList(contains3Rule, divisionRule, defaultRule);
+    }
 
     public String count(int number) {
-        final boolean isExactDivisionByThree = number % 3 == 0;
-        final boolean isExactDivisionByFive = number % 5 == 0;
-        final boolean isExtractDivisionBySeven = number % 7 == 0;
-
-        return generateSaying(number, isExactDivisionByThree, isExactDivisionByFive, isExtractDivisionBySeven);
-    }
-
-    private String generateSaying(int number, boolean isExactDivisionByThree, boolean isExactDivisionByFive, boolean isExtractDivisionBySeven) {
-        String threeTimesSaying = threeTimesSaying(isExactDivisionByThree);
-        String fiveTimeSaying = fiveTimesSaying(isExactDivisionByFive);
-        String sevenTImeSaying = sevenTimesSaying(isExtractDivisionBySeven);
-
-        final String timesResult = String.join("", threeTimesSaying, fiveTimeSaying, sevenTImeSaying);
-
-        return Strings.isNullOrEmpty(timesResult) ? String.valueOf(number) : timesResult;
-    }
-
-    private String threeTimesSaying(boolean isExactDivisionByThree) {
-        String threeSaying = "Fizz";
-        return isExactDivisionByThree ? threeSaying : "";
-    }
-
-    private String fiveTimesSaying(boolean isExtractDivisionByFive) {
-        String fiveSaying = "Buzz";
-        return isExtractDivisionByFive ? fiveSaying : "";
-    }
-
-    private String sevenTimesSaying(boolean isExtractDivisionBySeven) {
-        String sevenSaying = "Whizz";
-        return isExtractDivisionBySeven ? sevenSaying : "";
+        final Optional<Rule> first = rules.stream().filter(rule -> rule.canApply(number)).findFirst();
+        return first.orElseThrow(() -> new RuntimeException("No Rule ??")).value(number);
     }
 }
