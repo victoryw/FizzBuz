@@ -4,6 +4,6 @@ public class FizzBuz {
     public String count(int number) {
         if(number % 3 == 0)
             return "Fizz";
-        return null;
+        return String.valueOf(number);
     }
 }

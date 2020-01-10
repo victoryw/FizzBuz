@@ -10,8 +10,19 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static org.junit.jupiter.api.Assertions.*;
 
 class FizzBuzTest {
+
     @ParameterizedTest
-    @ValueSource(ints = {3, 6 , 9})
+    @ValueSource(ints = {1, 5 , 8, 40})
+    void should_report_as_number_when_count_is_normal_case(int number) {
+        FizzBuz fizzBuz = new FizzBuz();
+
+        String answer = fizzBuz.count(number);
+
+        assertEquals(String.valueOf(number), answer);
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {3, 6 , 9, 30, 120})
     void should_be_said_fiz_when_count_is_3_times(int number) {
         FizzBuz fizzBuz = new FizzBuz();
 
