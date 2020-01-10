@@ -71,6 +71,16 @@ class FizzBuzTest {
         assertEquals("FizzWhizz", answer);
     }
 
+    @ParameterizedTest
+    @ValueSource(ints = {35, 175})
+    void should_be_said_FizzBuzz_when_count_is_same_as_5_and_7_times(int number) {
+        FizzBuz fizzBuz = new FizzBuz();
+
+        String answer = fizzBuz.count(number);
+
+        assertEquals("BuzzWhizz", answer);
+    }
+
     @Test
     void should_be_said_FizzBuzz_when_count_is_same_as_3_and_5_and_7_times() {
         FizzBuz fizzBuz = new FizzBuz();

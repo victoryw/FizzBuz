@@ -21,7 +21,7 @@ public class FizzBuz {
         }
 
         if (isExactDivisionByFive && isExtractDivisionBySeven) {
-            return String.join("", threeSaying, sevenSaying);
+            return String.join("", fiveSaying, sevenSaying);
         }
         if (isExactDivisionByThree && isExtractDivisionBySeven) {
             return String.join("", threeSaying, sevenSaying);
